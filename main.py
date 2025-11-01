@@ -12,7 +12,7 @@ token = os.getenv('TOKEN')
 
 @client.event
 async def on_ready():
-    status_text = "銀月別再gay了"
+    status_text = "discord.py"
     channel = client.get_channel(1434044899325513738)
     await client.change_presence(
         status=discord.Status.online,
@@ -49,6 +49,9 @@ async def on_message(message):
         echo_text = uMessage.split()[1]
         await message.delete()
         await message.channel.send(echo_text)
+    if uMessage.lower() == "!weather":
+        weather = os.popen("curl -s wttr.in/Taipei?0").read()
+        await message.channel.send(f"The weather in Taipei is:\n```{weather}```")
     
 
 @client.event
