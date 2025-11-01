@@ -52,6 +52,25 @@ async def on_message(message):
     if uMessage.lower() == "!weather":
         weather = os.popen("curl -s wttr.in/Taipei?0").read()
         await message.channel.send(f"The weather in Taipei is:\n```{weather}```")
+    if uMessage.lower() == "!joke":
+        joke = os.popen("curl -H 'Accept: text/plain' https://icanhazdadjoke.com/").read()
+        await message.channel.send(f"{joke}")
+    lyrics_sentences = [
+    "If I had a dime every time someone tried, me and my pride, I'd be richer than I am right now.",
+    "But I live a life so sublime, all the fire's on my side, watch it flicker in my hand like, \"Wow\".",
+    "This world is mine and jumping up the ladder is nothing but a matter of time.",
+    "Where treachery and treason are just another reason to rhyme, embark on some havoc and charge up the master of minds; it's the perfect crime.",
+    "Like dust on the radio, one day that's what we'll all be in the wind.",
+    "I live my life like my soul is on stereo, press play, become emulsified in sin.",
+    "They say, \"Video killed the radio star last night,\" 33, like a deer in those flashing lights, let Mr. Vox know that I'm still around, yeah I'm back, and I'm beaming the radio demon's in town.",
+    "Now, I wouldn't lie or deny that my eyes are on the prize, and I promise you, I'll stand my ground.",
+    "But I'm not to fight all the lives that reside within these heights; don't you worry, love, you have my vow.",
+    "This world is mine; the cretins will have a season and they will shine, but we can become a beacon for all the blind.",
+    "A demon of my allegiance can burn the sky; this is so divine.",
+    "They say, \"Video killed the radio star last night,\" 33, like a deer in those flashing lights, let Mr. Vox know that I'm still around, yeah I'm back, and I'm beaming the radio demon's in town.",
+    "In town, demons in town, in town."]
+    if uMessage.lower() == "!quote":
+        await message.channel.send(random.choice(lyrics_sentences))
     
 
 @client.event
